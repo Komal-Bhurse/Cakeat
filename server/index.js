@@ -44,14 +44,15 @@ app.get("/api/getkey",(req,res)=>{
     res.status(200).json({key:RAZORPAY_KEY_ID})
 })
 
-if(process.env.NODE_ENV=='production'){
-    const path = require("path");
+// if(process.env.NODE_ENV=='production'){
+//     const path = require("path");
 
-    app.get("/",(req,res)=>{
-        app.use(express.static(path.join(__dirname,"../client/build")))
-        res.sendFile(path.join(__dirname,"../client/build/index.html"))
-    })
-}
+//     app.get("/",(req,res)=>{
+//         app.use(express.static(path.join(__dirname,"../client/build")))
+//         res.sendFile(path.join(__dirname,"../client/build/index.html"))
+//         res.json({massage:})
+//     })
+// }
 
 app.listen(PORT,()=>{
     console.log(`my server starts at port ${PORT}`)
