@@ -1,8 +1,7 @@
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
-const dotenv = require("dotenv")
-dotenv.config({path:'../config/.env'})
+require('dotenv').config()
 
 const handleOrders = async (req, res) => {
   const instance = new Razorpay({

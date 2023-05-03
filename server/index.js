@@ -1,7 +1,7 @@
 // import 
 const express = require("express");
-const dotenv = require('dotenv')
-dotenv.config({path:'./config/.env'})
+
+require('dotenv').config()
 
 const PORT =process.env.PORT || 5000;
 
