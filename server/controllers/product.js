@@ -31,9 +31,9 @@ const storage = multer.diskStorage({
   try {
        const allProduct = await Product.find({})
       
-       return res.status(200).json({data:allProduct});
+       return res.send(allProduct);
   } catch (error) {
-     return res.json({massage:error});
+     return res.send(error);
   }
        
  }
