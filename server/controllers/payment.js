@@ -1,13 +1,12 @@
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
-const RAZORPAY_KEY_ID = require("../config/keys");
-const RAZORPAY_KEY_SECRET = require("../config/keys");
+require("dotenv").config()
 
 const handleOrders = async (req, res) => {
   const instance = new Razorpay({
-    key_id: RAZORPAY_KEY_ID,
-    key_secret: RAZORPAY_KEY_SECRET,
+    key_id:process.env.RAZORPAY_KEY_ID,
+    key_secret:process.env.RAZORPAY_KEY_SECRET,
   });
   const options = {
     amount: req.body.amount * 100, // amount in the smallest currency unit
@@ -29,7 +28,7 @@ const handleVerify = (req, res) => {
     req.body.response.razorpay_payment_id;
 
   const expectedSignature = crypto
-    .createHmac("sha256", RAZORPAY_KEY_SECRET)
+    .createHmac("sha256",process.env.RAZORPAY_KEY_SECRET)
     .update(body.toString())
     .digest("hex");
 
