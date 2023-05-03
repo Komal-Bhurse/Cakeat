@@ -45,7 +45,7 @@ function UserCart() {
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "http://localhost:5000/api/payment/verify",
+            "https://cakeat.onrender.com/api/payment/verify",
             { response },
             { withCredentials: true }
           );
@@ -74,7 +74,7 @@ function UserCart() {
   const handlePayment = async (amount, name, email, mobNumber) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/payment/orders",
+        "https://cakeat.onrender.com/api/payment/orders",
         { amount },
         { withCredentials: true }
       );

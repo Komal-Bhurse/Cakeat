@@ -21,7 +21,7 @@ function Header() {
 
   const logout = async () => {
     const response = await axios.post(
-      "http://localhost:5000/api/logout",
+      "https://cakeat.onrender.com/api/logout",
       {},
       { withCredentials: true }
     );

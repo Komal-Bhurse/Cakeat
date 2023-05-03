@@ -28,7 +28,7 @@ function CakeItem() {
   async function addToCart(id, price) {
     try {
       await axios.post(
-        `http://localhost:5000/api/cart/${id}`,
+        `https://cakeat.onrender.com/api/cart/${id}`,
         { price },
         { withCredentials: true }
       );
@@ -51,7 +51,7 @@ function CakeItem() {
             key={product._id}
           >
             <img
-              src={`http://localhost:5000${product.Image}`}
+              src={`https://cakeat.onrender.com${product.Image}`}
               alt={product.Name}
               className="w-44 h-36 md:h-40 rounded-lg mx-auto cursor-pointer"
               onClick={() => navigate(`/product/${product._id}`)}

@@ -18,7 +18,7 @@ function SignUp({ setToggle }) {
       onSubmit: async (values, action) => {
         try {
           const response = await axios.post(
-            "http://localhost:5000/api/register",
+            "https://cakeat.onrender.com/api/register",
             values
           );
           alert(response.data.massage);

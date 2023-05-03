@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getAllCartItems = createAsyncThunk("getAllCartItems",async()=>{
-     const cartItems = await axios.get(`http://localhost:5000/api/cart`,{withCredentials:true})
+     const cartItems = await axios.get(`https://cakeat.onrender.com/api/cart`,{withCredentials:true})
      
       return cartItems.data;
 })
