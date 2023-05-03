@@ -1,7 +1,7 @@
 // import 
 const express = require("express");
-const PORT =require("./config/keys")
-const PORT = process.env.PORT || 5000;
+
+const PORT = 5000;
 
 const connectMongoDB = require("./connection");
 const cors = require("./middlewares/index");
