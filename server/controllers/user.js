@@ -21,7 +21,7 @@ const handleSignIn = async(req,res)=>{
     }
     
     const token = setUser(user);
-    res.cookie("uid",token,{httpOnly:true,secure:true,domain:"cakeat-ecom.vercel.app",sameSite:"none"});
+    res.cookie("uid",token,{httpOnly:false,secure:true,domain:"cakeat-ecom.vercel.app",sameSite:"none"});
     return res.json({user:user});
 
 }
