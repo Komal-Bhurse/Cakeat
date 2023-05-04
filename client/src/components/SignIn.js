@@ -27,7 +27,7 @@ function SignIn({ setToggle, onCloseClick }) {
           const response = await axios.post(
             "https://cakeat.onrender.com/api/login",
             values,
-            { withCredentials: true }
+            // { withCredentials: true }
           );
 
           if (response.data.user) {
