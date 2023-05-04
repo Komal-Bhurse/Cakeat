@@ -26,7 +26,7 @@ connectMongoDB(process.env.MONGO_ATLAS_URI);
 // middlewares
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({origin:'https://cakeat-ecom.vercel.app'}));
 app.use(express.json());
 
 
