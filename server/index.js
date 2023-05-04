@@ -26,7 +26,7 @@ connectMongoDB(process.env.MONGO_ATLAS_URI);
 // middlewares
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
-app.use(cors({origin:'https://cakeat-ecom.vercel.app'}));
+app.use(cors({origin:'https://cakeat-ecom.vercel.app',methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}));
 app.use(express.json());
 
 
@@ -35,7 +35,7 @@ app.use('/public', express.static('public'));
 
 
 // routes
-app.use("/api",userRouter);
+app.use("/api",cors(),userRouter);
 app.use("/api/product",productRouter)
 app.use("/api/cart",restrictToLogedInUserOnly,cartRouter)
 app.use("/api/payment/",restrictToLogedInUserOnly,paymentRouter)
