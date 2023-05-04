@@ -1,12 +1,12 @@
 // import 
 const express = require("express");
-const cors = require("cors")
+
 require('dotenv').config()
 
 const PORT =process.env.PORT || 5000;
 
 const connectMongoDB = require("./connection");
-// const cors = require("./middlewares/index");
+const cors = require("./middlewares/index");
 
 const cookieParser = require("cookie-parser")
 
@@ -26,7 +26,7 @@ connectMongoDB(process.env.MONGO_ATLAS_URI);
 // middlewares
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
-app.use(cors({origin:'https://cakeat-ecom.vercel.app',methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}));
+app.use(cors());
 app.use(express.json());
 
 
@@ -35,7 +35,7 @@ app.use('/public', express.static('public'));
 
 
 // routes
-app.use("/api",cors(),userRouter);
+app.use("/api",userRouter);
 app.use("/api/product",productRouter)
 app.use("/api/cart",restrictToLogedInUserOnly,cartRouter)
 app.use("/api/payment/",restrictToLogedInUserOnly,paymentRouter)
