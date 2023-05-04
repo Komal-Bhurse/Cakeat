@@ -19,7 +19,6 @@ const handleSignIn = async(req,res)=>{
     if(!user){
       return  res.json({massage:"plese enter valid email or password"});
     }
-    
     const token = setUser(user);
     res.cookie("uid",token);
     return res.json({user:user});
