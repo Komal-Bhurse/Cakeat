@@ -1,12 +1,12 @@
 // import 
 const express = require("express");
-
+const cors = require("cors")
 require('dotenv').config()
 
 const PORT =process.env.PORT || 5000;
 
 const connectMongoDB = require("./connection");
-const cors = require("./middlewares/index");
+// const cors = require("./middlewares/index");
 
 const cookieParser = require("cookie-parser")
 
