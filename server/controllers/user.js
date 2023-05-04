@@ -21,7 +21,7 @@ const handleSignIn = async(req,res)=>{
     }
     
     const token = setUser(user);
-    res.cookie("uid",token,{Domain:"https://cakeat.onrender.com"});
+    res.cookie("uid",token,{httpOnly:true,secure:true,domain:"cakeat.onrender.com"});
     return res.json({user:user});
 
 }
