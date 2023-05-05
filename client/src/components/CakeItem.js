@@ -51,7 +51,7 @@ function CakeItem() {
             key={product._id}
           >
             <img
-              src={`https://cakeat.vercel.app/${product.Image}`}
+              src={`${product.Image}`}
               alt={product.Name}
               className="w-44 h-36 md:h-40 rounded-lg mx-auto cursor-pointer"
               onClick={() => navigate(`/product/${product._id}`)}
