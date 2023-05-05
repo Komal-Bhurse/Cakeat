@@ -33,10 +33,7 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 
-
- 
 app.use('/public', express.static('public'));
-
 
 // routes
 app.use("/api",userRouter);

@@ -1,23 +1,27 @@
-const {getUser} = require("../service/auth");
+const { getUser } = require("../service/auth");
 
-async function restrictToLogedInUserOnly (req,res,next){
-    const userUid = req.cookies?.uid;
-    
-    if(!userUid){
-        return res.json({massage:"this future is access only when you loged In"})
-    }
+async function restrictToLogedInUserOnly(req, res, next) {
+  const userUid = req.cookies?.uid;
 
-    const user = getUser(userUid);
-    
-    if(!user){
-        return res.json({massage:"this future is access only when you loged In"})
-    }
+  if (!userUid) {
+    return res.json({
+      massage: "this future is access only when you loged In",
+    });
+  }
 
-    req.user = user;
+  const user = getUser(userUid);
 
-    next();
+  if (!user) {
+    return res.json({
+      massage: "this future is access only when you loged In",
+    });
+  }
+
+  req.user = user;
+
+  next();
 }
 
 module.exports = {
-    restrictToLogedInUserOnly
-}
+  restrictToLogedInUserOnly,
+};
