@@ -18,7 +18,7 @@ function SignUp({ setToggle }) {
       onSubmit: async (values, action) => {
         try {
           const response = await axios.post(
-            "https://cakeat.onrender.com/api/register",
+            "https://cakeat.vercel.app/api/register",
             values
           );
           alert(response.data.massage);

@@ -22,7 +22,7 @@ function Admin() {
 
   return (
     <div className="border w-96 m-auto text-center p-10 mt-10">
-      <form action="http://localhost:5000/api/product" method="post" encType="multipart/form-data">
+      <form action="https://cakeat.vercel.app/api/product" method="post" encType="multipart/form-data">
       
       <label className="mb-5">Product Id</label><br/>
         <label className="mr-5 cursor-pointer">

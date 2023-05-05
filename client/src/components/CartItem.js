@@ -11,7 +11,7 @@ function CartItem() {
   const removeCartItem = async (id) => {
     try {
       const response = await axios.delete(
-        `https://cakeat.onrender.com/api/cart/${id}`,
+        `https://cakeat.vercel.app/api/cart/${id}`,
         { withCredentials: true }
       );
       if (response?.data?.massage === "removed") {
@@ -37,7 +37,7 @@ function CartItem() {
             >
               <div className=" sm:flex justify-center gap-4">
                 <img
-                  src={`https://cakeat.onrender.com${product?.productId?.Image}`}
+                  src={`https://cakeat.vercel.app${product?.productId?.Image}`}
                   alt="img"
                   className=" w-24 p-1"
                   onClick={() =>
