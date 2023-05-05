@@ -11,7 +11,7 @@ function CartItem() {
   const removeCartItem = async (id) => {
     try {
       const response = await axios.delete(
-        `https://cakeat.vercel.app/api/cart/${id}`,
+        `api/cart/${id}`,
         { withCredentials: true }
       );
       if (response?.data?.massage === "removed") {

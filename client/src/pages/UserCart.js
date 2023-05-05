@@ -45,7 +45,7 @@ function UserCart() {
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "https://cakeat.vercel.app/api/payment/verify",
+            "api/payment/verify",
             { response },
             { withCredentials: true }
           );
@@ -74,7 +74,7 @@ function UserCart() {
   const handlePayment = async (amount, name, email, mobNumber) => {
     try {
       const response = await axios.post(
-        "https://cakeat.vercel.app/api/payment/orders",
+        "api/payment/orders",
         { amount },
         { withCredentials: true }
       );
