@@ -1,12 +1,12 @@
 // import 
 const express = require("express");
+const cors = require("cors")
 
 require('dotenv').config()
 
 const PORT =process.env.PORT || 5000;
 
 const connectMongoDB = require("./connection");
-const cors = require("./middlewares/index.js");
 
 const cookieParser = require("cookie-parser")
 
@@ -25,7 +25,11 @@ connectMongoDB(process.env.MONGO_ATLAS_URI);
 
 // middlewares
 app.use(express.urlencoded({extended:false}));
-app.use(cors());
+app.use(cors({
+    origin:"https://cakeat-ecom.vercel.app/",
+    methods:['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+    credentials:true,
+}))
 app.use(cookieParser());
 app.use(express.json());
 
