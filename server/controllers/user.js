@@ -23,8 +23,10 @@ const handleSignIn = async(req,res)=>{
     }
     
     const token = setUser(user);
-    res.setHeader("Set-Cookie",`uid=${token}`) 
-    // res.cookie("uid",token);
+    
+    res.cookie("uid",token,{
+        secure:true
+    });
     return res.json({user:user});
 
     } catch (error) {
