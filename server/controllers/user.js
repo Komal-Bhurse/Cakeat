@@ -1,3 +1,4 @@
+const { TokenExpiredError } = require("jsonwebtoken");
 const User = require("../models/user");
 const {setUser} = require("../service/auth");
                     
@@ -20,10 +21,10 @@ const handleSignIn = async(req,res)=>{
     if(!user){
       return  res.json({massage:"plese enter valid email or password"});
     }
-    console.log(user)
+    
     const token = setUser(user);
-    console.log(token)
-    res.cookie("uid",token);
+    res.setHeader("Set-Cookie",`uid=${token}`) 
+    // res.cookie("uid",token);
     return res.json({user:user});
 
     } catch (error) {
