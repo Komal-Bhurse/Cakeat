@@ -161,7 +161,7 @@ function ProductDetials() {
         <div className=" w-full sm:w-2/5">
           <div className="sm:mb-2 p-8 lg:px-10 md:px-5 sm:px-3 sm:py-10">
             <img
-              src={`https://cakeat.vercel.app/${data?.Image}`}
+              src={`https://cakeat.vercel.app${data?.Image}`}
               alt={data?.Name}
               className="mx-auto"
             />
