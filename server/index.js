@@ -28,7 +28,6 @@ app.use(express.urlencoded({extended:false}));
 app.use(cors({
     origin:"https://cakeat-ecom.vercel.app",
     methods:['GET','POST','DELETE','UPDATE','PUT','PATCH'],
-    credentials:true,
 }))
 app.use(cookieParser());
 app.use(express.json());
