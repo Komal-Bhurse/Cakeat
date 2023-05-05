@@ -26,7 +26,7 @@ const handleSignIn = async(req,res)=>{
     
     res.cookie("uid",token,{
         secure:true,
-        sameSite:"none",
+        origin:"https://cakeat-ecom.vercel.app"
     });
     return res.json({user:user});
 
