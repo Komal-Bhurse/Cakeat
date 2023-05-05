@@ -32,7 +32,7 @@ function ProductDetials() {
 
   const fetchProduct = async () => {
     const result = await axios.get(
-      `api/product/${params.id}`
+      `https://cakeat.vercel.app/api/product/${params.id}`
     );
     setData(result.data);
   };
@@ -42,7 +42,7 @@ function ProductDetials() {
   async function addToCart(id, price) {
     try {
       await axios.post(
-        `api/cart/${id}`,
+        `https://cakeat.vercel.app/api/cart/${id}`,
         { quantity, weight, productType, price },
         { withCredentials: true }
       );
@@ -91,7 +91,7 @@ function ProductDetials() {
   };
 
   const handleOpenRazorpay = async (data, name, email, password) => {
-     const res = await axios.get("api/getkey")
+     const res = await axios.get("https://cakeat.vercel.app/api/getkey")
 
     const options = {
       key: res?.key, // Enter the Key ID generated from the Dashboard
@@ -102,7 +102,7 @@ function ProductDetials() {
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "api/payment/verify",
+            "https://cakeat.vercel.app/api/payment/verify",
             { response },
             { withCredentials: true }
           );
@@ -140,7 +140,7 @@ function ProductDetials() {
     }
     try {
       const response = await axios.post(
-        "api/payment/orders",
+        "https://cakeat.vercel.app/api/payment/orders",
         { amount },
         { withCredentials: true }
       );

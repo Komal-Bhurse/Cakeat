@@ -25,7 +25,7 @@ function SignIn({ setToggle, onCloseClick }) {
       onSubmit: async (values, action) => {
         try {
           const response = await axios.post(
-            "api/login",
+            "https://cakeat.vercel.app/api/login",
             values,
             { withCredentials: true }
           );

@@ -21,7 +21,7 @@ function Header() {
 
   const logout = async () => {
     const response = await axios.post(
-      "api/logout",
+      "https://cakeat.vercel.app/api/logout",
       {},
       { withCredentials: true }
     );

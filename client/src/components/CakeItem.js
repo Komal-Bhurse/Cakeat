@@ -28,7 +28,7 @@ function CakeItem() {
   async function addToCart(id, price) {
     try {
       await axios.post(
-        `api/cart/${id}`,
+        `https://cakeat.vercel.app/api/cart/${id}`,
         { price },
         { withCredentials: true }
       );
