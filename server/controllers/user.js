@@ -15,7 +15,8 @@ const handleSignUp = async(req,res)=>{
                        
 const handleSignIn = async(req,res)=>{
     const {Email,Password} = req.body;
-    const user = await User.matchPassword(Email,Password)
+    try {
+        const user = await User.matchPassword(Email,Password)
     if(!user){
       return  res.json({massage:"plese enter valid email or password"});
     }
@@ -23,6 +24,9 @@ const handleSignIn = async(req,res)=>{
     res.cookie("uid",token);
     return res.json({user:user});
 
+    } catch (error) {
+       return res.json({massage:error});
+    }
 }
 
 const handleLogout =(req,res)=>{
