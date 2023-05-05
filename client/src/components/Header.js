@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import { userInfo } from "../redux/slices/userSlice";
 import { cartItems } from "../redux/slices/cartSlice";
 import { setUser } from "../redux/slices/userSlice";
+import site from "../config/api";
 
 function Header() {
   const [showDialog, setShowDialog] = useState(false);
@@ -21,7 +22,7 @@ function Header() {
 
   const logout = async () => {
     const response = await axios.post(
-      "https://cakeat.vercel.app/api/logout",
+      `${site}/api/logout`,
       {},
       { withCredentials: true }
     );

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getAllCartItems } from "../redux/slices/cartSlice";
 import Login from "./Login";
+import site from "../config/api";
 
 function ProductDetials() {
   const [quantity, setQuantity] = useState(1);
@@ -32,7 +33,7 @@ function ProductDetials() {
 
   const fetchProduct = async () => {
     const result = await axios.get(
-      `https://cakeat.vercel.app/api/product/${params.id}`
+      `${site}/api/product/${params.id}`
     );
     setData(result.data);
   };
@@ -42,7 +43,7 @@ function ProductDetials() {
   async function addToCart(id, price) {
     try {
       await axios.post(
-        `https://cakeat.vercel.app/api/cart/${id}`,
+        `${site}/api/cart/${id}`,
         { quantity, weight, productType, price },
         { withCredentials: true }
       );
@@ -91,7 +92,7 @@ function ProductDetials() {
   };
 
   const handleOpenRazorpay = async (data, name, email, password) => {
-     const res = await axios.get("https://cakeat.vercel.app/api/getkey")
+     const res = await axios.get(`${site}/api/getkey`)
 
     const options = {
       key: res?.key, // Enter the Key ID generated from the Dashboard
@@ -102,7 +103,7 @@ function ProductDetials() {
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "https://cakeat.vercel.app/api/payment/verify",
+            `${site}/api/payment/verify`,
             { response },
             { withCredentials: true }
           );
@@ -140,7 +141,7 @@ function ProductDetials() {
     }
     try {
       const response = await axios.post(
-        "https://cakeat.vercel.app/api/payment/orders",
+        `${site}/api/payment/orders`,
         { amount },
         { withCredentials: true }
       );
@@ -161,7 +162,7 @@ function ProductDetials() {
         <div className=" w-full sm:w-2/5">
           <div className="sm:mb-2 p-8 lg:px-10 md:px-5 sm:px-3 sm:py-10">
             <img
-              src={`https://cakeat.vercel.app${data?.Image}`}
+              src={`${site}${data?.Image}`}
               alt={data?.Name}
               className="mx-auto"
             />

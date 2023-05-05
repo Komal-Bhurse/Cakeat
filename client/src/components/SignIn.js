@@ -9,6 +9,7 @@ import { setUser } from "../redux/slices/userSlice";
 
 import { signInSchema } from "../formvalidation/validation";
 import loginimg from "../images/loginimg.jpg";
+import site from "../config/api";
 
 const initialValues = {
   Email: "",
@@ -25,7 +26,7 @@ function SignIn({ setToggle, onCloseClick }) {
       onSubmit: async (values, action) => {
         try {
           const response = await axios.post(
-            "https://cakeat.vercel.app/api/login",
+            `${site}/api/login`,
             values,
             { withCredentials: true }
           );

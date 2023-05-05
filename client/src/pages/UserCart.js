@@ -5,6 +5,7 @@ import axios from "axios";
 import CartItem from "../components/CartItem";
 import Login from "./Login";
 import { setUser } from "../redux/slices/userSlice";
+import site from "../config/api";
 
 function UserCart() {
   const [showDialog, setShowDialog] = useState(false);
@@ -45,7 +46,7 @@ function UserCart() {
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "https://cakeat.vercel.app/api/payment/verify",
+            `${site}/api/payment/verify`,
             { response },
             { withCredentials: true }
           );
@@ -74,7 +75,7 @@ function UserCart() {
   const handlePayment = async (amount, name, email, mobNumber) => {
     try {
       const response = await axios.post(
-        "https://cakeat.vercel.app/api/payment/orders",
+        `${site}/api/payment/orders`,
         { amount },
         { withCredentials: true }
       );

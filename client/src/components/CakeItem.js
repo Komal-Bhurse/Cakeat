@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { getAllCartItems } from "../redux/slices/cartSlice";
 import Login from "../pages/Login";
+import site from "../config/api";
 
 function CakeItem() {
   const state = useSelector((state) => state);
@@ -28,7 +29,7 @@ function CakeItem() {
   async function addToCart(id, price) {
     try {
       await axios.post(
-        `https://cakeat.vercel.app/api/cart/${id}`,
+        `${site}/api/cart/${id}`,
         { price },
         { withCredentials: true }
       );
@@ -51,7 +52,7 @@ function CakeItem() {
             key={product._id}
           >
             <img
-              src={`https://cakeat.vercel.app${product.Image}`}
+              src={`${site}${product.Image}`}
               alt={product.Name}
               className="w-44 h-36 md:h-40 rounded-lg mx-auto cursor-pointer"
               onClick={() => navigate(`/product/${product._id}`)}

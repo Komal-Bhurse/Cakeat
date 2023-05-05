@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getAllCartItems } from "../redux/slices/cartSlice";
+import site from "../config/api";
 
 function CartItem() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function CartItem() {
   const removeCartItem = async (id) => {
     try {
       const response = await axios.delete(
-        `https://cakeat.vercel.app/api/cart/${id}`,
+        `${site}/api/cart/${id}`,
         { withCredentials: true }
       );
       if (response?.data?.massage === "removed") {
@@ -37,7 +38,7 @@ function CartItem() {
             >
               <div className=" sm:flex justify-center gap-4">
                 <img
-                  src={`https://cakeat.vercel.app${product?.productId?.Image}`}
+                  src={`${site}${product?.productId?.Image}`}
                   alt="img"
                   className=" w-24 p-1"
                   onClick={() =>

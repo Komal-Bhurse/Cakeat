@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-
+import site from "../config/api.js"
 function Admin() {
   const [data, setData] = useState({
     ProductId:"",
@@ -22,7 +21,7 @@ function Admin() {
 
   return (
     <div className="border w-96 m-auto text-center p-10 mt-10">
-      <form action="https://cakeat.vercel.app/api/product" method="post" encType="multipart/form-data">
+      <form action={`${site}/api/product`} method="post" encType="multipart/form-data">
       
       <label className="mb-5">Product Id</label><br/>
         <label className="mr-5 cursor-pointer">

@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
+import site from "../../config/api";
 
 export const fetchProducts = createAsyncThunk("fetchProducts", async()=>{
-     const response = await axios.get("https://cakeat.vercel.app/api/product/cake")
+     const response = await axios.get(`${site}/api/product/cake`)
      return response.data;
 })
 

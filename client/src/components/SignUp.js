@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import axios from "axios";
 import { signUpSchema } from "../formvalidation/validation";
+import site from "../config/api.js"
 
 const initialValues = {
   name: "",
@@ -18,7 +19,7 @@ function SignUp({ setToggle }) {
       onSubmit: async (values, action) => {
         try {
           const response = await axios.post(
-            "https://cakeat.vercel.app/api/register",
+            `${site}/api/register`,
             values
           );
           alert(response.data.massage);
