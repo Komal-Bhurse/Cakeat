@@ -13,7 +13,7 @@ const addCartItem = async (req, res) => {
       totalPrice = quantity * ((weight / 250) * price);
     }
   }
-  try {
+  
     const user = await Cart.findOne({ userId: req.user._id });
 
     if (!user) {
@@ -47,13 +47,10 @@ const addCartItem = async (req, res) => {
     }
 
     return res.json({ massage: "Item added to the cart" });
-  } catch (error) {
-    return res.json({ massage: error });
-  }
 };
 
 const getCartItem = async (req, res) => {
-  try {
+  
     const cartItems = await Cart.find({ userId: req.user._id })
       .populate({
         path: "cartItems",
@@ -68,13 +65,10 @@ const getCartItem = async (req, res) => {
       return res.json({ massage: "there is no items in your cart" });
     }
     return res.send(cartItems[0]?.cartItems);
-  } catch (error) {
-    return res.json({ massage: error });
-  }
 };
 
 const deleteCartItem = async (req, res) => {
-  try {
+  
     const response = await Cart.updateMany(
       {
         userId: req.user._id,
@@ -88,9 +82,6 @@ const deleteCartItem = async (req, res) => {
       }
     );
     return res.json({ massage: "removed" });
-  } catch (error) {
-    return res.json({ massage: error });
-  }
 };
 
 module.exports = { addCartItem, getCartItem, deleteCartItem };

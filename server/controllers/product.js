@@ -16,7 +16,7 @@ const upload = multer({ storage });
 
 const addProduct = async (req, res) => {
   const { Name, Price, Description } = req.body;
-  try {
+
     const product = await Product.create({
       Name,
       Price,
@@ -25,28 +25,19 @@ const addProduct = async (req, res) => {
     });
 
     return res.status(200).json({ massage: "success" });
-  } catch (error) {
-    return res.json({ massage: error });
-  }
 };
 
 const getProduct = async (req, res) => {
-  try {
+
     const allProduct = await Product.find({});
 
     return res.send(allProduct);
-  } catch (error) {
-    return res.send(error);
-  }
 };
 
 const getSingalProduct = async (req, res) => {
-  try {
+  
     const product = await Product.findOne({ _id: req.params.id });
     return res.send(product);
-  } catch (error) {
-    return res.json({ massage: error });
-  }
 };
 
 module.exports = {

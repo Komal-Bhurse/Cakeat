@@ -12,12 +12,8 @@ const handleOrders = async (req, res) => {
     amount: req.body.amount * 100, // amount in the smallest currency unit
     currency: "INR",
   };
-  try {
     const order = await instance.orders.create(options);
     return res.status(200).json({ massage: "order created", data: order });
-  } catch (error) {
-    return res.status(500).json({ massage: error });
-  }
 };
 
 const handleVerify = (req, res) => {
