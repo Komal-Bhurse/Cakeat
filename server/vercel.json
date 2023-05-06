@@ -1,5 +1,9 @@
 {
     "version": 2,
+    "static": {
+      "src": "public",
+      "dest": "/public"
+    },
     "builds": [
       { 
         "src": "index.js", 
@@ -11,9 +15,5 @@
         "src": "/(.*)",
         "dest": "/index.js" 
       }
-    ],
-    "static": {
-      "src": "public",
-      "dest": "/public"
-    }
+    ]
   }
