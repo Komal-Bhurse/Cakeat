@@ -13,7 +13,7 @@
       }
     ],
     "static": {
-      "source": "public",
-      "destination": "/public"
+      "src": "public",
+      "dest": "/public"
     }
   }
