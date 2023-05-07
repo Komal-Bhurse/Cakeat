@@ -24,7 +24,7 @@ const handleSignIn = async (req, res) => {
 
     const token = setUser(user);
   
-    res.cookie("uid",token,{secure:true,domain:"cakeat.vercel.app"});
+    res.cookie("uid",token,{secure:true,domain:"cakeat.onrender.com"});
     return res.json({ user: user });
 };
 

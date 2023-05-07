@@ -1,3 +1,3 @@
-const site = "https://cakeat.vercel.app";
+const site = "https://cakeat.onrender.com";
 
 export default site;
