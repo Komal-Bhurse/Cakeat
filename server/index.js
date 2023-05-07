@@ -48,6 +48,11 @@ app.get("/api/getkey",(req,res)=>{
     res.status(200).json({key:process.env.RAZORPAY_KEY_ID})
 })
 
+app.get("/",(req,res)=>{
+    const path = require("path")
+    res.sendFile(path.resolve(__dirname,"../",'client','testbuild','index.html'))
+})
+
 app.listen(PORT,()=>{
     console.log(`my server starts at port ${PORT}`)
 });
