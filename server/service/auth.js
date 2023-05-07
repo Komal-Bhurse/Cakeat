@@ -14,12 +14,7 @@ function getUser(token){
     if(!token){
         return null;
     }else{
-        try {
-            return jwt.verify(token,process.env.JWT_SECRET_KEY);
-        } catch (error) {
-            return null
-        }
-        
+        return jwt.verify(token,process.env.JWT_SECRET_KEY);
     }
     
 }
