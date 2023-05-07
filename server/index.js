@@ -41,6 +41,7 @@ app.get("/api/getkey",(req,res)=>{
 })
 
 app.get("/",(req,res)=>{
+    app.use(express.static(path.resolve(__dirname,'public','uploads')))
     app.use(express.static(path.resolve(__dirname,"../",'client','build')))
     res.sendFile(path.resolve(__dirname,"../",'client','build','index.html'))
 })
